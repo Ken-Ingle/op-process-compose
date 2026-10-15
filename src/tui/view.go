@@ -97,6 +97,8 @@ type pcView struct {
 	detachOnSuccess        bool
 	procStatesMtx          sync.Mutex
 	procStates             *types.ProcessesState
+	procPortsMtx           sync.Mutex
+	procPorts              map[string]string
 	attentionMessages      chan attentionMessage
 	attentionCancel        context.CancelFunc
 	errTuiStartup          error
@@ -683,6 +685,7 @@ func (pv *pcView) resume() {
 
 	go pv.updateProcStates(ctxTbl)
 	go pv.updateTable(ctxTbl)
+	go pv.updateProcPorts(ctxTbl)
 	go pv.updateLogs(ctxLog)
 	go setSignal(ctxSig)
 }

@@ -21,8 +21,9 @@ const (
 	ProcessStateHealth    ColumnID = 6
 	ProcessStateMem       ColumnID = 7
 	ProcessStateCPU       ColumnID = 8
-	ProcessStateRestarts  ColumnID = 9
-	ProcessStateExit      ColumnID = 10
+	ProcessStatePorts     ColumnID = 9
+	ProcessStateRestarts  ColumnID = 10
+	ProcessStateExit      ColumnID = 11
 )
 
 var columnNames = map[ColumnID]string{

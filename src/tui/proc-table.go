@@ -26,6 +26,7 @@ type tableRowValues struct {
 	age       string
 	mem       string
 	cpu       string
+	ports     string
 	health    string
 	restarts  string
 	exitCode  string
@@ -171,6 +172,7 @@ func setRowValues(procTable *tview.Table, row int, rowVals tableRowValues) {
 	procTable.SetCell(row, int(ProcessStateHealth), tview.NewTableCell(rowVals.health).SetAlign(tview.AlignLeft).SetExpansion(1).SetTextColor(rowVals.fgColor))
 	procTable.SetCell(row, int(ProcessStateMem), tview.NewTableCell(rowVals.mem).SetAlign(tview.AlignLeft).SetExpansion(1).SetTextColor(rowVals.fgColor))
 	procTable.SetCell(row, int(ProcessStateCPU), tview.NewTableCell(rowVals.cpu).SetAlign(tview.AlignLeft).SetExpansion(1).SetTextColor(rowVals.fgColor))
+	procTable.SetCell(row, int(ProcessStatePorts), tview.NewTableCell(rowVals.ports).SetAlign(tview.AlignLeft).SetExpansion(1).SetTextColor(rowVals.fgColor))
 	procTable.SetCell(row, int(ProcessStateRestarts), tview.NewTableCell(rowVals.restarts).SetAlign(tview.AlignRight).SetExpansion(0).SetTextColor(rowVals.fgColor))
 	procTable.SetCell(row, int(ProcessStateExit), tview.NewTableCell(rowVals.exitCode).SetAlign(tview.AlignRight).SetExpansion(0).SetTextColor(rowVals.fgColor))
 }
@@ -256,6 +258,7 @@ func (pv *pcView) createProcTable() *tview.Table {
 		ProcessStateHealth:    "HEALTH(H)",
 		ProcessStateMem:       "MEM(M)",
 		ProcessStateCPU:       "CPU(U)",
+		ProcessStatePorts:     "PORTS",
 		ProcessStateRestarts:  "RESTARTS(R)",
 		ProcessStateExit:      "EXIT CODE(E)",
 	}
@@ -552,6 +555,7 @@ func (pv *pcView) getTableRowValues(state types.ProcessState) tableRowValues {
 		health:    state.Health,
 		mem:       getStrForMem(state.Mem, state.IsRunning),
 		cpu:       getStrForCPU(state.CPU, state.IsRunning),
+		ports:     pv.getStrForPorts(state.Name, state.IsRunning),
 		restarts:  getStrForRestarts(state.Restarts),
 		exitCode:  getStrForExitCode(state),
 	}
