@@ -13,7 +13,7 @@ import (
 
 func runInDetachedMode() {
 	log.Info().Msg("Running in detached mode")
-	fmt.Println("Starting Process Compose in detached mode. Use 'process-compose attach' to connect to it or 'process-compose down' to stop it")
+	fmt.Println("Starting Process Compose in detached mode. Use 'op-process-compose attach' to connect to it or 'op-process-compose down' to stop it")
 	//remove detached flag
 	for i, arg := range os.Args {
 		if arg == "-D" || arg == "--detached" || arg == "--detached-with-tui" {

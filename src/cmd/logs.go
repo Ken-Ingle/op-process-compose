@@ -8,9 +8,9 @@ import (
 	"strings"
 	"time"
 
-	"github.com/f1bonacc1/process-compose/src/api"
-	"github.com/f1bonacc1/process-compose/src/client"
-	"github.com/f1bonacc1/process-compose/src/pclog"
+	"github.com/Ken-Ingle/op-process-compose/src/api"
+	"github.com/Ken-Ingle/op-process-compose/src/client"
+	"github.com/Ken-Ingle/op-process-compose/src/pclog"
 	"github.com/rs/zerolog/log"
 	"github.com/spf13/cobra"
 )

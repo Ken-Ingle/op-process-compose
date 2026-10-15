@@ -1,9 +1,9 @@
 { buildGoModule, config, lib, pkgs, installShellFiles, date, commit }:
 
-let pkg = "github.com/f1bonacc1/process-compose/src/config";
+let pkg = "github.com/Ken-Ingle/op-process-compose/src/config";
 in
 (buildGoModule.override { go = pkgs.go_1_26; }) rec {
-  pname = "process-compose";
+  pname = "op-process-compose";
   version = "1.122.0";
   env.CGO_ENABLED = 0;
 
@@ -23,10 +23,10 @@ in
 
   postInstall = ''
 
-    installShellCompletion --cmd process-compose \
-      --bash <($out/bin/process-compose completion bash) \
-      --zsh <($out/bin/process-compose completion zsh) \
-      --fish <($out/bin/process-compose completion fish)
+    installShellCompletion --cmd op-process-compose \
+      --bash <($out/bin/op-process-compose completion bash) \
+      --zsh <($out/bin/op-process-compose completion zsh) \
+      --fish <($out/bin/op-process-compose completion fish)
   '';
 
   meta = with lib; {
@@ -34,7 +34,7 @@ in
     homepage = "https://github.com/F1bonacc1/process-compose";
     changelog = "https://github.com/F1bonacc1/process-compose/releases/tag/v${version}";
     license = licenses.asl20;
-    mainProgram = "process-compose";
+    mainProgram = "op-process-compose";
   };
 
   doCheck = true;

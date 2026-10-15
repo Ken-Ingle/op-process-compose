@@ -4,9 +4,9 @@ import (
 	"errors"
 	"time"
 
-	"github.com/f1bonacc1/process-compose/src/config"
-	"github.com/f1bonacc1/process-compose/src/types"
-	"github.com/f1bonacc1/process-compose/src/watcher"
+	"github.com/Ken-Ingle/op-process-compose/src/config"
+	"github.com/Ken-Ingle/op-process-compose/src/types"
+	"github.com/Ken-Ingle/op-process-compose/src/watcher"
 	"github.com/rs/zerolog/log"
 )
 

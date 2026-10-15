@@ -8,8 +8,8 @@ import (
 	"strconv"
 	"time"
 
-	"github.com/f1bonacc1/process-compose/src/app"
-	"github.com/f1bonacc1/process-compose/src/types"
+	"github.com/Ken-Ingle/op-process-compose/src/app"
+	"github.com/Ken-Ingle/op-process-compose/src/types"
 	"github.com/gdamore/tcell/v2"
 	"github.com/rivo/tview"
 	"github.com/rs/zerolog/log"

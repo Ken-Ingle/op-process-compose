@@ -1,6 +1,6 @@
 package pclog
 
-import "github.com/f1bonacc1/process-compose/src/types"
+import "github.com/Ken-Ingle/op-process-compose/src/types"
 
 type PcNilLog struct {
 }

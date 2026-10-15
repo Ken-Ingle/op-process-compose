@@ -4,7 +4,7 @@ import (
 	"strings"
 	"testing"
 
-	"github.com/f1bonacc1/process-compose/src/types"
+	"github.com/Ken-Ingle/op-process-compose/src/types"
 )
 
 // Test_getProcessEnvironment_Precedence tests the environment variable precedence order.

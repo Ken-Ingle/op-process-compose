@@ -9,9 +9,9 @@ import (
 	"strings"
 	"testing"
 
-	"github.com/f1bonacc1/process-compose/src/api"
-	"github.com/f1bonacc1/process-compose/src/app"
-	"github.com/f1bonacc1/process-compose/src/types"
+	"github.com/Ken-Ingle/op-process-compose/src/api"
+	"github.com/Ken-Ingle/op-process-compose/src/app"
+	"github.com/Ken-Ingle/op-process-compose/src/types"
 	"github.com/gin-gonic/gin"
 )
 

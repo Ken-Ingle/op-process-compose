@@ -6,9 +6,9 @@ import (
 	"testing"
 	"time"
 
+	"github.com/Ken-Ingle/op-process-compose/src/command"
 	"github.com/f1bonacc1/go-health/v2"
 	"github.com/f1bonacc1/go-health/v2/checkers"
-	"github.com/f1bonacc1/process-compose/src/command"
 	"github.com/google/go-cmp/cmp"
 )
 

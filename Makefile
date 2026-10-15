@@ -1,4 +1,4 @@
-NAME=process-compose
+NAME=op-process-compose
 RM=rm
 #VERSION = v0.51.0
 VERSION = $(shell git describe --abbrev=0)
@@ -6,7 +6,7 @@ GIT_REV    ?= $(shell git rev-parse --short HEAD)
 DATE       ?= $(shell TZ=UTC0 git show --quiet --date='format-local:%Y-%m-%dT%H:%M:%SZ' --format="%cd")
 NUMVER = $(shell echo ${VERSION} | cut -d"v" -f 2)
 NIX_VERSION = $(shell sed -n '7p' default.nix | grep -oP '[0-9]+\.[0-9]+\.[0-9]+')
-PKG = github.com/f1bonacc1/${NAME}
+PKG = github.com/Ken-Ingle/${NAME}
 SHELL := /usr/bin/env bash
 PROJ_NAME := Process Compose
 DOCS_DIR  := www/docs/cli
@@ -98,11 +98,11 @@ github-workflows:
 	act -W ./.github/workflows/nix.yml -j build
 
 docs: build
-	./bin/process-compose docs ${DOCS_DIR}
+	./bin/${NAME} docs ${DOCS_DIR}
 	for f in ${DOCS_DIR}/*.md ; do sed -i 's/${USER}/<user>/g; s|${TMPDIR}|/tmp/|g; s/process-compose-[0-9]\+.sock/process-compose-<pid>.sock/g' $$f ; done
 
 schema:
-	./bin/process-compose schema ./schemas/process-compose-schema.json
+	./bin/${NAME} schema ./schemas/process-compose-schema.json
 
 lint: golangci-lint
 	./bin/golangci-lint run --show-stats -c .golangci.yaml

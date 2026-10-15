@@ -6,12 +6,12 @@ import (
 	"os/signal"
 	"syscall"
 
-	"github.com/f1bonacc1/process-compose/src/app"
-	"github.com/f1bonacc1/process-compose/src/config"
-	"github.com/f1bonacc1/process-compose/src/loader"
-	"github.com/f1bonacc1/process-compose/src/tui"
-	"github.com/f1bonacc1/process-compose/src/types"
-	"github.com/f1bonacc1/process-compose/src/util"
+	"github.com/Ken-Ingle/op-process-compose/src/app"
+	"github.com/Ken-Ingle/op-process-compose/src/config"
+	"github.com/Ken-Ingle/op-process-compose/src/loader"
+	"github.com/Ken-Ingle/op-process-compose/src/tui"
+	"github.com/Ken-Ingle/op-process-compose/src/types"
+	"github.com/Ken-Ingle/op-process-compose/src/util"
 	"github.com/rs/zerolog/log"
 )
 

@@ -4,7 +4,7 @@ import (
 	"slices"
 	"testing"
 
-	"github.com/f1bonacc1/process-compose/src/command"
+	"github.com/Ken-Ingle/op-process-compose/src/command"
 )
 
 func TestProject_WithProcesses(t *testing.T) {

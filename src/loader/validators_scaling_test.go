@@ -3,7 +3,7 @@ package loader
 import (
 	"testing"
 
-	"github.com/f1bonacc1/process-compose/src/types"
+	"github.com/Ken-Ingle/op-process-compose/src/types"
 )
 
 func Test_validateScheduledProcessScaling(t *testing.T) {

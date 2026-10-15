@@ -4,8 +4,8 @@ import (
 	"net/http"
 	"net/url"
 
-	"github.com/f1bonacc1/process-compose/src/config"
-	_ "github.com/f1bonacc1/process-compose/src/docs"
+	"github.com/Ken-Ingle/op-process-compose/src/config"
+	_ "github.com/Ken-Ingle/op-process-compose/src/docs"
 	"github.com/gin-gonic/gin"
 	"github.com/rs/zerolog/log"
 	swaggerFiles "github.com/swaggo/files"

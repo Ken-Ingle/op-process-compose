@@ -8,8 +8,8 @@ import (
 	"net/url"
 	"strings"
 
-	"github.com/f1bonacc1/process-compose/src/config"
-	"github.com/f1bonacc1/process-compose/src/types"
+	"github.com/Ken-Ingle/op-process-compose/src/config"
+	"github.com/Ken-Ingle/op-process-compose/src/types"
 	"github.com/gorilla/websocket"
 	"github.com/rs/zerolog/log"
 )

@@ -1,6 +1,7 @@
 version: 2
 # This is an example .goreleaser.yml file with some sensible defaults.
 # Make sure to check the documentation at https://goreleaser.com
+project_name: op-process-compose
 before:
   hooks:
     # You may remove this if you don't use go modules.
@@ -29,11 +30,12 @@ builds:
       - goos: windows
         goarch: arm
     dir: ./
+    binary: op-process-compose
     ldflags:
-      - -X github.com/f1bonacc1/process-compose/src/config.Version={{.Tag}}
-      - -X github.com/f1bonacc1/process-compose/src/config.CheckForUpdates=true
-      - -X github.com/f1bonacc1/process-compose/src/config.Commit={{.ShortCommit}}
-      - -X github.com/f1bonacc1/process-compose/src/config.Date={{.CommitDate}}
+      - -X github.com/Ken-Ingle/op-process-compose/src/config.Version={{.Tag}}
+      - -X github.com/Ken-Ingle/op-process-compose/src/config.CheckForUpdates=true
+      - -X github.com/Ken-Ingle/op-process-compose/src/config.Commit={{.ShortCommit}}
+      - -X github.com/Ken-Ingle/op-process-compose/src/config.Date={{.CommitDate}}
       - -s -w
 archives:
   - id: process-compose

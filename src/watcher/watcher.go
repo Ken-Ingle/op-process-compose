@@ -7,7 +7,7 @@ import (
 	"sync/atomic"
 	"time"
 
-	"github.com/f1bonacc1/process-compose/src/types"
+	"github.com/Ken-Ingle/op-process-compose/src/types"
 	"github.com/fsnotify/fsnotify"
 	"github.com/rs/zerolog/log"
 )

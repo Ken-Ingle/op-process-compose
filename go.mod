@@ -1,4 +1,4 @@
-module github.com/f1bonacc1/process-compose
+module github.com/Ken-Ingle/op-process-compose
 
 go 1.26
 

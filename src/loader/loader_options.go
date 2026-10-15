@@ -1,8 +1,8 @@
 package loader
 
 import (
-	"github.com/f1bonacc1/process-compose/src/admitter"
-	"github.com/f1bonacc1/process-compose/src/types"
+	"github.com/Ken-Ingle/op-process-compose/src/admitter"
+	"github.com/Ken-Ingle/op-process-compose/src/types"
 	"os"
 	"path/filepath"
 )
@@ -55,4 +55,3 @@ func (o *LoaderOptions) WithTuiDisabled(disabled bool) {
 func (o *LoaderOptions) WithOrderedShutdown(enabled bool) {
 	o.isOrderedShutdown = enabled
 }
-

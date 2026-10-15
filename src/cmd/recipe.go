@@ -8,8 +8,8 @@ import (
 	"text/tabwriter"
 	"time"
 
+	"github.com/Ken-Ingle/op-process-compose/src/recipe"
 	"github.com/alecthomas/chroma/v2/quick"
-	"github.com/f1bonacc1/process-compose/src/recipe"
 	"github.com/spf13/cobra"
 )
 
@@ -46,7 +46,7 @@ var pullRecipeCmd = &cobra.Command{
 	Long: `Download and install a recipe from the process-compose recipes repository.
 
 The recipe will be downloaded to your local recipes directory and can be used
-with 'process-compose -f ~/.process-compose/recipes/[recipe-name]/process-compose.yaml'`,
+with 'op-process-compose -f ~/.process-compose/recipes/[recipe-name]/process-compose.yaml'`,
 	Args: cobra.ExactArgs(1),
 	RunE: func(cmd *cobra.Command, args []string) error {
 		recipeName := args[0]
@@ -131,7 +131,7 @@ var listRecipesCmd = &cobra.Command{
 
 		if len(recipes) == 0 {
 			fmt.Println("No recipes installed locally.")
-			fmt.Println("Use 'process-compose recipe search' to find recipes, then 'process-compose recipe pull <name>' to install them.")
+			fmt.Println("Use 'op-process-compose recipe search' to find recipes, then 'op-process-compose recipe pull <name>' to install them.")
 			return nil
 		}
 

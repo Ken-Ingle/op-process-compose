@@ -9,10 +9,10 @@ import (
 	"strings"
 	"syscall"
 
-	"github.com/f1bonacc1/process-compose/src/command"
-	"github.com/f1bonacc1/process-compose/src/config"
-	"github.com/f1bonacc1/process-compose/src/templater"
-	"github.com/f1bonacc1/process-compose/src/types"
+	"github.com/Ken-Ingle/op-process-compose/src/command"
+	"github.com/Ken-Ingle/op-process-compose/src/config"
+	"github.com/Ken-Ingle/op-process-compose/src/templater"
+	"github.com/Ken-Ingle/op-process-compose/src/types"
 	"github.com/rs/zerolog/log"
 )
 

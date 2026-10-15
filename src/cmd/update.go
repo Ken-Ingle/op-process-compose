@@ -2,9 +2,9 @@ package cmd
 
 import (
 	"fmt"
-	"github.com/f1bonacc1/process-compose/src/config"
-	"github.com/f1bonacc1/process-compose/src/loader"
-	"github.com/f1bonacc1/process-compose/src/types"
+	"github.com/Ken-Ingle/op-process-compose/src/config"
+	"github.com/Ken-Ingle/op-process-compose/src/loader"
+	"github.com/Ken-Ingle/op-process-compose/src/types"
 	"github.com/rs/zerolog/log"
 	"github.com/spf13/cobra"
 	"os"

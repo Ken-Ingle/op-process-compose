@@ -13,11 +13,11 @@ import (
 	"testing"
 	"time"
 
-	"github.com/f1bonacc1/process-compose/src/command"
-	"github.com/f1bonacc1/process-compose/src/health"
-	"github.com/f1bonacc1/process-compose/src/loader"
-	"github.com/f1bonacc1/process-compose/src/pclog"
-	"github.com/f1bonacc1/process-compose/src/types"
+	"github.com/Ken-Ingle/op-process-compose/src/command"
+	"github.com/Ken-Ingle/op-process-compose/src/health"
+	"github.com/Ken-Ingle/op-process-compose/src/loader"
+	"github.com/Ken-Ingle/op-process-compose/src/pclog"
+	"github.com/Ken-Ingle/op-process-compose/src/types"
 )
 
 func waitForProcessState(t *testing.T, runner *ProjectRunner, name string, wantStatus string, timeout time.Duration) {

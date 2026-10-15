@@ -43,11 +43,11 @@ func TestGetArchiveName(t *testing.T) {
 	expectedArch := runtime.GOARCH
 
 	if runtime.GOOS == "windows" {
-		if name != "process-compose_"+expectedOS+"_"+expectedArch+".zip" {
+		if name != "op-process-compose_"+expectedOS+"_"+expectedArch+".zip" {
 			t.Errorf("getArchiveName() = %q, want .zip suffix on Windows", name)
 		}
 	} else {
-		if name != "process-compose_"+expectedOS+"_"+expectedArch+".tar.gz" {
+		if name != "op-process-compose_"+expectedOS+"_"+expectedArch+".tar.gz" {
 			t.Errorf("getArchiveName() = %q, want .tar.gz suffix on non-Windows", name)
 		}
 	}

@@ -4,7 +4,7 @@ import (
 	"encoding/json"
 	"fmt"
 
-	"github.com/f1bonacc1/process-compose/src/types"
+	"github.com/Ken-Ingle/op-process-compose/src/types"
 )
 
 func (p *PcClient) getDependencyGraph() (*types.DependencyGraph, error) {

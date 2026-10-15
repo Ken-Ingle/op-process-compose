@@ -1,7 +1,7 @@
 package cmd
 
 import (
-	"github.com/f1bonacc1/process-compose/src/updater"
+	"github.com/Ken-Ingle/op-process-compose/src/updater"
 	"github.com/spf13/cobra"
 )
 

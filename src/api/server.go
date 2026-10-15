@@ -6,8 +6,8 @@ import (
 	"net/http"
 	"os"
 
-	"github.com/f1bonacc1/process-compose/src/app"
-	"github.com/f1bonacc1/process-compose/src/docs"
+	"github.com/Ken-Ingle/op-process-compose/src/app"
+	"github.com/Ken-Ingle/op-process-compose/src/docs"
 	"github.com/gin-gonic/gin"
 	"github.com/rs/zerolog/log"
 )

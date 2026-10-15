@@ -1,7 +1,7 @@
 package tui
 
 import (
-	"github.com/f1bonacc1/process-compose/src/config"
+	"github.com/Ken-Ingle/op-process-compose/src/config"
 	"github.com/gdamore/tcell/v2"
 	"github.com/rivo/tview"
 )

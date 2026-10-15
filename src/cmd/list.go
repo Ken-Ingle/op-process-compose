@@ -3,8 +3,8 @@ package cmd
 import (
 	"encoding/json"
 	"fmt"
-	"github.com/f1bonacc1/process-compose/src/app"
-	"github.com/f1bonacc1/process-compose/src/types"
+	"github.com/Ken-Ingle/op-process-compose/src/app"
+	"github.com/Ken-Ingle/op-process-compose/src/types"
 	"github.com/rs/zerolog/log"
 	"os"
 	"sort"

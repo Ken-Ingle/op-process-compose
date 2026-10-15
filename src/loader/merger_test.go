@@ -1,8 +1,8 @@
 package loader
 
 import (
-	"github.com/f1bonacc1/process-compose/src/health"
-	"github.com/f1bonacc1/process-compose/src/types"
+	"github.com/Ken-Ingle/op-process-compose/src/health"
+	"github.com/Ken-Ingle/op-process-compose/src/types"
 	"reflect"
 	"testing"
 )

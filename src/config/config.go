@@ -79,7 +79,7 @@ const (
 	configHome         = "process-compose"
 	recipesPath        = "recipes"
 	DonateURL          = "https://github.com/sponsors/f1bonacc1"
-	DiscussionsURL     = "https://github.com/f1bonacc1/process-compose/discussions"
+	DiscussionsURL     = "https://github.com/Ken-Ingle/op-process-compose/discussions"
 )
 
 var (

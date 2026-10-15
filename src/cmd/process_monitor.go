@@ -9,8 +9,8 @@ import (
 	"sync"
 	"syscall"
 
-	"github.com/f1bonacc1/process-compose/src/client"
-	"github.com/f1bonacc1/process-compose/src/types"
+	"github.com/Ken-Ingle/op-process-compose/src/client"
+	"github.com/Ken-Ingle/op-process-compose/src/types"
 	"github.com/rs/zerolog/log"
 	"github.com/spf13/cobra"
 )

@@ -10,7 +10,7 @@ import (
 	"strconv"
 	"strings"
 
-	"github.com/f1bonacc1/process-compose/src/pclog"
+	"github.com/Ken-Ingle/op-process-compose/src/pclog"
 	"github.com/rivo/tview"
 )
 

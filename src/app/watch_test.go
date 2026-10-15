@@ -9,8 +9,8 @@ import (
 	"testing"
 	"time"
 
-	"github.com/f1bonacc1/process-compose/src/command"
-	"github.com/f1bonacc1/process-compose/src/types"
+	"github.com/Ken-Ingle/op-process-compose/src/command"
+	"github.com/Ken-Ingle/op-process-compose/src/types"
 )
 
 // countLinesIn returns the number of non-empty lines in a marker file,

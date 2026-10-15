@@ -17,13 +17,13 @@ import (
 	"strings"
 	"time"
 
-	"github.com/f1bonacc1/process-compose/src/config"
+	"github.com/Ken-Ingle/op-process-compose/src/config"
 )
 
 const (
-	downloadURLTemplate  = "https://github.com/f1bonacc1/process-compose/releases/download/%s/%s"
-	checksumsURLTemplate = "https://github.com/f1bonacc1/process-compose/releases/download/%s/process-compose_checksums.txt"
-	binaryName           = "process-compose"
+	downloadURLTemplate  = "https://github.com/Ken-Ingle/op-process-compose/releases/download/%s/%s"
+	checksumsURLTemplate = "https://github.com/Ken-Ingle/op-process-compose/releases/download/%s/op-process-compose_checksums.txt"
+	binaryName           = "op-process-compose"
 )
 
 func getArchiveName() string {

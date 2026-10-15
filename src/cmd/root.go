@@ -12,15 +12,15 @@ import (
 	"strconv"
 	"time"
 
-	"github.com/f1bonacc1/process-compose/src/admitter"
-	"github.com/f1bonacc1/process-compose/src/api"
-	"github.com/f1bonacc1/process-compose/src/app"
-	"github.com/f1bonacc1/process-compose/src/client"
-	"github.com/f1bonacc1/process-compose/src/config"
-	"github.com/f1bonacc1/process-compose/src/loader"
-	"github.com/f1bonacc1/process-compose/src/mcp"
-	"github.com/f1bonacc1/process-compose/src/types"
-	"github.com/f1bonacc1/process-compose/src/updater"
+	"github.com/Ken-Ingle/op-process-compose/src/admitter"
+	"github.com/Ken-Ingle/op-process-compose/src/api"
+	"github.com/Ken-Ingle/op-process-compose/src/app"
+	"github.com/Ken-Ingle/op-process-compose/src/client"
+	"github.com/Ken-Ingle/op-process-compose/src/config"
+	"github.com/Ken-Ingle/op-process-compose/src/loader"
+	"github.com/Ken-Ingle/op-process-compose/src/mcp"
+	"github.com/Ken-Ingle/op-process-compose/src/types"
+	"github.com/Ken-Ingle/op-process-compose/src/updater"
 	"github.com/rs/zerolog"
 	"github.com/rs/zerolog/log"
 	"github.com/spf13/cobra"
@@ -33,7 +33,7 @@ var (
 
 	// rootCmd represents the base command when called without any subcommands
 	rootCmd = &cobra.Command{
-		Use:   "process-compose",
+		Use:   "op-process-compose",
 		Short: "Processes scheduler and orchestrator",
 		PersistentPreRun: func(cmd *cobra.Command, args []string) {
 			// Client-mode invocations log to a separate file so they don't
@@ -361,12 +361,12 @@ func checkForUpdatesInBackground() {
 			close(updateMsg)
 			return
 		}
-		hint := "process-compose version update"
+		hint := "op-process-compose version update"
 		if _, err := updater.CheckCanReplace(); err != nil {
 			if runtime.GOOS == "windows" {
-				hint = "an Administrator shell to run: process-compose version update"
+				hint = "an Administrator shell to run: op-process-compose version update"
 			} else {
-				hint = "sudo process-compose version update"
+				hint = "sudo op-process-compose version update"
 			}
 		}
 		updateMsg <- fmt.Sprintf("\n\033[33mInfo:\033[0m New version available: %s -> %s. Run '%s'\n",

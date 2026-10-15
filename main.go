@@ -1,7 +1,7 @@
 package main
 
 import (
-	"github.com/f1bonacc1/process-compose/src/cmd"
+	"github.com/Ken-Ingle/op-process-compose/src/cmd"
 )
 
 func main() {

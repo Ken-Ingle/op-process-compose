@@ -10,8 +10,8 @@ import (
 	"strconv"
 	"sync/atomic"
 
-	"github.com/f1bonacc1/process-compose/src/api"
-	"github.com/f1bonacc1/process-compose/src/config"
+	"github.com/Ken-Ingle/op-process-compose/src/api"
+	"github.com/Ken-Ingle/op-process-compose/src/config"
 	"github.com/gorilla/websocket"
 	"github.com/rs/zerolog/log"
 )

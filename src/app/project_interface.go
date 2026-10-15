@@ -3,8 +3,8 @@ package app
 import (
 	"os"
 
-	"github.com/f1bonacc1/process-compose/src/pclog"
-	"github.com/f1bonacc1/process-compose/src/types"
+	"github.com/Ken-Ingle/op-process-compose/src/pclog"
+	"github.com/Ken-Ingle/op-process-compose/src/types"
 )
 
 // IProject holds all the functions from the project struct that are being consumed by the tui package

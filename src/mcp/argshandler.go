@@ -6,7 +6,7 @@ import (
 	"strconv"
 	"strings"
 
-	"github.com/f1bonacc1/process-compose/src/types"
+	"github.com/Ken-Ingle/op-process-compose/src/types"
 )
 
 // SubstituteArguments replaces @{arg} and @{arg:default} patterns with actual values
