@@ -99,6 +99,10 @@ type pcView struct {
 	procStates             *types.ProcessesState
 	procPortsMtx           sync.Mutex
 	procPorts              map[string]string
+	procCwdsMtx            sync.Mutex
+	procCwds               map[string]string
+	startDir               string
+	homeDir                string
 	attentionMessages      chan attentionMessage
 	attentionCancel        context.CancelFunc
 	errTuiStartup          error
@@ -137,6 +141,7 @@ func newPcView(project app.IProject) *pcView {
 		settings:          config.NewSettings(),
 		attentionMessages: make(chan attentionMessage, 10),
 	}
+	pv.startDir, pv.homeDir = cwdBaseDirs()
 	pv.termView = NewTerminalView(pv.appView)
 	pv.termView.SetOnEscape(pv.changeFocus)
 	pv.termView.SetOnFocus(func() { pv.updateHelpTextView() })
@@ -686,6 +691,7 @@ func (pv *pcView) resume() {
 	go pv.updateProcStates(ctxTbl)
 	go pv.updateTable(ctxTbl)
 	go pv.updateProcPorts(ctxTbl)
+	go pv.updateProcCwds(ctxTbl)
 	go pv.updateLogs(ctxLog)
 	go setSignal(ctxSig)
 }

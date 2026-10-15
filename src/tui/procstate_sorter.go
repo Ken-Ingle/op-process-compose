@@ -24,6 +24,7 @@ const (
 	ProcessStatePorts     ColumnID = 9
 	ProcessStateRestarts  ColumnID = 10
 	ProcessStateExit      ColumnID = 11
+	ProcessStateCwd       ColumnID = 12
 )
 
 var columnNames = map[ColumnID]string{
@@ -38,6 +39,7 @@ var columnNames = map[ColumnID]string{
 	ProcessStateCPU:       "CPU",
 	ProcessStateRestarts:  "RESTARTS",
 	ProcessStateExit:      "EXIT",
+	ProcessStateCwd:       "CWD",
 }
 
 var columnIDs = map[string]ColumnID{
@@ -52,6 +54,7 @@ var columnIDs = map[string]ColumnID{
 	"CPU":       ProcessStateCPU,
 	"RESTARTS":  ProcessStateRestarts,
 	"EXIT":      ProcessStateExit,
+	"CWD":       ProcessStateCwd,
 }
 
 func (c ColumnID) String() string {
@@ -83,12 +86,13 @@ type StateSorter struct {
 
 type sortFn func(i, j int) bool
 
-func sortProcessesState(sortBy ColumnID, asc bool, states *types.ProcessesState) error {
+// cwds is the CWD column's name → displayed cwd snapshot (see getProcCwds).
+func sortProcessesState(sortBy ColumnID, asc bool, states *types.ProcessesState, cwds map[string]string) error {
 
 	if states == nil {
 		return errors.New("empty states")
 	}
-	sorter := getSorter(sortBy, states)
+	sorter := getSorter(sortBy, states, cwds)
 	if !asc {
 		sorter = reverse(sorter)
 	}
@@ -96,7 +100,7 @@ func sortProcessesState(sortBy ColumnID, asc bool, states *types.ProcessesState)
 	return nil
 }
 
-func getSorter(sortBy ColumnID, states *types.ProcessesState) sortFn {
+func getSorter(sortBy ColumnID, states *types.ProcessesState, cwds map[string]string) sortFn {
 	switch sortBy {
 	case ProcessStatePid:
 		return func(i, j int) bool {
@@ -156,6 +160,16 @@ func getSorter(sortBy ColumnID, states *types.ProcessesState) sortFn {
 				return eci < ecj
 			}
 		}
+	case ProcessStateCwd:
+		return func(i, j int) bool {
+			cwdi := cwdSortKey(states.States[i], cwds)
+			cwdj := cwdSortKey(states.States[j], cwds)
+			if cwdi == cwdj {
+				return states.States[i].Name < states.States[j].Name
+			} else {
+				return cwdi < cwdj
+			}
+		}
 	case ProcessStateMem:
 		return func(i, j int) bool {
 			return states.States[i].Mem < states.States[j].Mem
@@ -177,4 +191,13 @@ func reverse(less func(i, j int) bool) func(i, j int) bool {
 	return func(i, j int) bool {
 		return !less(i, j)
 	}
+}
+
+// cwdSortKey mirrors getStrForCwd: a stopped process sorts as having no cwd,
+// even if the last scan still lists one.
+func cwdSortKey(state types.ProcessState, cwds map[string]string) string {
+	if !state.IsRunning {
+		return ""
+	}
+	return cwds[state.Name]
 }

@@ -61,6 +61,15 @@ func (pt *ProcessTree) Update() error {
 	return nil
 }
 
+// ChildPids returns the parent PID → child PIDs map from the last Update.
+// Update replaces the map rather than mutating it, so the result stays
+// consistent after the lock is released; callers must not modify it.
+func (pt *ProcessTree) ChildPids() map[int32][]int32 {
+	pt.RLock()
+	defer pt.RUnlock()
+	return pt.tree
+}
+
 func (pt *ProcessTree) GetDescendants(pid int32) []*puproc.Process {
 	pt.RLock()
 	defer pt.RUnlock()

@@ -14,7 +14,7 @@ process-compose attach [flags]
   -l, --log-length int      log length to display in TUI (default 1000)
   -r, --ref-rate duration   TUI refresh rate in seconds or as a Go duration string (e.g. 1s) (default 1)
   -R, --reverse             sort in reverse order
-  -S, --sort string         sort column name. legal values (case insensitive): [AGE, CPU, EXIT, HEALTH, MEM, NAME, NAMESPACE, PID, RESTARTS, STATUS] (default "NAME")
+  -S, --sort string         sort column name. legal values (case insensitive): [AGE, CPU, CWD, EXIT, HEALTH, MEM, NAME, NAMESPACE, PID, RESTARTS, STATUS] (default "NAME")
       --theme string        select process compose theme (default "Default")
 ```
 

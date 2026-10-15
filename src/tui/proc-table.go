@@ -27,6 +27,7 @@ type tableRowValues struct {
 	mem       string
 	cpu       string
 	ports     string
+	cwd       string
 	health    string
 	restarts  string
 	exitCode  string
@@ -51,7 +52,7 @@ func (pv *pcView) fillTableData() {
 		return
 	}
 	sorter := pv.getTableSorter()
-	err := sortProcessesState(sorter.sortByColumn, sorter.isAsc, states)
+	err := sortProcessesState(sorter.sortByColumn, sorter.isAsc, states, pv.getProcCwds())
 	if err != nil {
 		log.Err(err).Msg("failed to sort states")
 		return
@@ -175,6 +176,7 @@ func setRowValues(procTable *tview.Table, row int, rowVals tableRowValues) {
 	procTable.SetCell(row, int(ProcessStatePorts), tview.NewTableCell(rowVals.ports).SetAlign(tview.AlignLeft).SetExpansion(1).SetTextColor(rowVals.fgColor))
 	procTable.SetCell(row, int(ProcessStateRestarts), tview.NewTableCell(rowVals.restarts).SetAlign(tview.AlignRight).SetExpansion(0).SetTextColor(rowVals.fgColor))
 	procTable.SetCell(row, int(ProcessStateExit), tview.NewTableCell(rowVals.exitCode).SetAlign(tview.AlignRight).SetExpansion(0).SetTextColor(rowVals.fgColor))
+	procTable.SetCell(row, int(ProcessStateCwd), tview.NewTableCell(rowVals.cwd).SetAlign(tview.AlignLeft).SetExpansion(1).SetTextColor(rowVals.fgColor))
 }
 
 func (pv *pcView) onTableSelectionChange(_, _ int) {
@@ -261,6 +263,7 @@ func (pv *pcView) createProcTable() *tview.Table {
 		ProcessStatePorts:     "PORTS",
 		ProcessStateRestarts:  "RESTARTS(R)",
 		ProcessStateExit:      "EXIT CODE(E)",
+		ProcessStateCwd:       "CWD(W)",
 	}
 
 	table.Select(1, 1).SetFixed(1, 0).SetInputCapture(func(event *tcell.EventKey) *tcell.EventKey {
@@ -286,6 +289,8 @@ func (pv *pcView) createProcTable() *tview.Table {
 				pv.setTableSorter(ProcessStateExit)
 			} else if event.Rune() == 'P' {
 				pv.setTableSorter(ProcessStatePid)
+			} else if event.Rune() == 'W' {
+				pv.setTableSorter(ProcessStateCwd)
 			}
 		}
 		return event
@@ -556,6 +561,7 @@ func (pv *pcView) getTableRowValues(state types.ProcessState) tableRowValues {
 		mem:       getStrForMem(state.Mem, state.IsRunning),
 		cpu:       getStrForCPU(state.CPU, state.IsRunning),
 		ports:     pv.getStrForPorts(state.Name, state.IsRunning),
+		cwd:       pv.getStrForCwd(state.Name, state.IsRunning),
 		restarts:  getStrForRestarts(state.Restarts),
 		exitCode:  getStrForExitCode(state),
 	}

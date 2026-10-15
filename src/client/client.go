@@ -96,6 +96,23 @@ func (p *PcClient) IsRemote() bool {
 	return true
 }
 
+// IsLocal reports whether the server runs on this machine (a unix socket or a
+// loopback address), so the PIDs it reports can be inspected directly.
+func (p *PcClient) IsLocal() bool {
+	if p.address == "unix" {
+		return true
+	}
+	host, _, err := net.SplitHostPort(p.address)
+	if err != nil {
+		return false
+	}
+	if host == "localhost" {
+		return true
+	}
+	ip := net.ParseIP(host)
+	return ip != nil && ip.IsLoopback()
+}
+
 func (p *PcClient) GetProjectName() (string, error) {
 	return p.getProjectName()
 }
